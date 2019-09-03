@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PersonDao">
+    <insert id="insert" parameterType="Person">
+        insert into t_person values(#{id},#{name},#{sex},#{age},#{mobile},#{address})
+    </insert>
+
+    <update id="update" parameterType="Person">
+        update t_person t_person set name=#{name},sex=#{sex},age=#{age},mobile=#{mobile},address=#{address} where id=#{id}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from t_person where id=#{id}
+    </delete>
+
+    <select id="selectById" parameterType="java.lang.Integer" resultType="Person">
+        select * from t_person where id=#{id}
+    </select>
+
+    <select id="selectAll" resultType="Person">
+        select * from t_person
+    </select>
+
+    <select id="selectIdAndName" resultType="Person">
+        select * from t_person where id=#{id} and name=#{name}
+    </select>
+
+    <select id="selectIdAndNameUseSeq" resultType="Person">
+        select * from t_person where id=#{0} and name=#{1}
+    </select>
+
+    <select id="selectByStartEnd" resultType="Person">
+
+    </select>
+</mapper>
